@@ -28,7 +28,7 @@ jobs:
         with:
         # Configure SonarQube scanner (replace with your project details)
           projectKey: 'OscarGitOps_Laboratorio-final'
-           organization: 'oscargitops'
+          organization: 'oscargitops'
         # ... other SonarQube settings
       
       - name: Run OWASP Dependency Check
