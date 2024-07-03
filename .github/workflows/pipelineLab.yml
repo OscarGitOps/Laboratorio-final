@@ -81,9 +81,11 @@ jobs:
 
 # ------------------ Docker Scan ------------------------------------
 
+
   DockerScan:
     needs: build-and-deploy
     runs-on: ubuntu-latest
+    
     steps:
     
       - name: Docker Login
