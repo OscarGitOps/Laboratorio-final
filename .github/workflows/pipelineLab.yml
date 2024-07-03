@@ -45,7 +45,7 @@ jobs:
           trivy fs . > trivyfs.txt
       
       - name: Docker Login (if pushing to registry)
-        if: ${{ secrets.DOCKER_USER }}  # Check for Docker Hub username secret
+        if: ${{ secrets.DOCKER_USER }} 
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USER }}
@@ -56,7 +56,7 @@ jobs:
            docker build --tag oscargitops/netflix:latest . -t netflix .
       
       - name: Push Docker Image (if pushing)
-        if: ${{ secrets.DOCKER_USER }}  # Check for Docker Hub username secret
+        if: ${{ secrets.DOCKER_USER }} 
         run: |
            docker tag netflix oscargitops/netflix:latest
            docker push oscargitops/netflix:latest
