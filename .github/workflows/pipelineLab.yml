@@ -24,13 +24,14 @@ jobs:
           node-version: 16
 
       - name: Use SonarQube Scanner
-        uses: sonarsource/sonarcloud-github-action@v1.2
+        uses: SonarSource/sonarqube-scan-action@v2.3.0
         with:
         # Configure SonarQube scanner (replace with your project details)
             projectKey: 'OscarGitOps_Laboratorio-final'
           organization: 'oscargitops'
         # ... other SonarQube settings
-      
+
+     
       - name: Run OWASP Dependency Check
         uses: dependency-check/dependency-check-action@v2
         with:
