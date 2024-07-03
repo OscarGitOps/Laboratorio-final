@@ -82,7 +82,7 @@ jobs:
 # ------------------ Docker Scan ------------------------------------
 
   DockerScan:
-    needs: DockerBuild
+    needs: build-and-deploy
     runs-on: ubuntu-latest
     steps:
     
