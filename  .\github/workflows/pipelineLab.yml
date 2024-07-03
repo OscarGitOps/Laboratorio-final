@@ -1,0 +1,5 @@
+name: Build, Scan, and Deploy (Netflix Clone)
+
+on:
+  push:
+    branches: feat-lab-oscarolivares-v1
