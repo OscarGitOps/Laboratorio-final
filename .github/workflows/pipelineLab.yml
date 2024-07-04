@@ -30,7 +30,11 @@ jobs:
       - name: Build React application
         run: |
             npm run build
-
+      
+      
+      - name: Compilacion MVN
+        run: mvn package
+      
       - name: Analisis SonarCloud
         run: |
           mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:3.11.0.3922:sonar \
