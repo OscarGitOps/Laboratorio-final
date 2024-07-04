@@ -44,53 +44,54 @@ jobs:
           -Dsonar.projectKey=OscarGitOps_Laboratorio-final
 
           
-      #- name: Dependency Check
-      #  uses: dependency-check/Dependency-Check_Action@1.1.0
-      #  env:
-      #    JAVA_HOME: /opt/jdk
-      #  id: Depcheck
-      #  with:
-      #      project: '${{ github.event.repository.name }}'
-      #      path: '.'
-      #      format: 'HTML'
-      #      out: 'reports'
-      #      args: >
-      #        --failOnCVSS 7
-      #        --enableRetired
+      - name: Dependency Check
+        uses: dependency-check/Dependency-Check_Action@1.1.0
+        env:
+          JAVA_HOME: /opt/jdk
+        id: Depcheck
+        with:
+            project: '${{ github.event.repository.name }}'
+            path: '.'
+            format: 'HTML'
+            out: 'reports'
+            args: >
+              --failOnCVSS 7
+              --enableRetired
 
-      #- name: Upload Test result
-      #  uses: actions/upload-artifact@v4
-      #  with:
-      #     name: Depcheck report
-      #     path: ${{github.workspace}}/reports
+      - name: Upload Test result
+        uses: actions/upload-artifact@v4
+        with:
+           name: Depcheck report
+           path: ${{github.workspace}}/reports
       
      
-      #- name: Run Trivy File System Scan
-      #  run: |
-      #    trivy fs . > trivyfs.txt
- 
-      # docker build --tag oscargitops/netflix:latest .
-
-      - name: Docker Login
-        uses: docker/login-action@v3.2.0
-        with:
-            username: ${{ secrets.DOCKER_USER }}
-            password: ${{ secrets.DOCKER_PASS }}
-     
-      - name: Build Docker Image
+      - name: Run Trivy File System Scan
         run: |
-           docker build --tag oscargitops/netflix:latest .
+          trivy fs . > trivyfs.txt
+ 
+ 
+    # docker build --tag oscargitops/netflix:latest .
+
+    #  - name: Docker Login
+    #    uses: docker/login-action@v3.2.0
+    #    with:
+    #        username: ${{ secrets.DOCKER_USER }}
+    #        password: ${{ secrets.DOCKER_PASS }}
+    # 
+    #  - name: Build Docker Image
+    #    run: |
+    #       docker build --tag oscargitops/netflix:latest .
       
    
  
     
 ###################################################
  
-      - name: Build Docker
-        run: |
-           docker build --tag oscargitops/netflix:latest .
-
-      - name: Push Docker
-        run: |
-          docker push oscargitops/netflix:latest
+    #  - name: Build Docker
+    #    run: |
+    #       docker build --tag oscargitops/netflix:latest .
+    #
+    #  - name: Push Docker
+    #    run: |
+    #      docker push oscargitops/netflix:latest
 
