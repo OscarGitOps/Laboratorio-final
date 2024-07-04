@@ -61,10 +61,13 @@ jobs:
     #       name: Depcheck report
     #       path: ${{github.workspace}}/reports
       
-     
+      - name: Install Trivy
+        run: |
+          sudo apt-get install trivy
+
       - name: Run Trivy File System Scan
         run: |
-          trivy fs  > trivyfs.txt
+          trivy fs . > trivyfs.txt
  
  
     # docker build --tag oscargitops/netflix:latest .
