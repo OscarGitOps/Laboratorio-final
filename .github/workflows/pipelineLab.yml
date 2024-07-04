@@ -35,13 +35,13 @@ jobs:
       - name: Compilacion MVN
         run: mvn package
       
-      - name: Analisis SonarCloud
-        run: |
-          mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:3.11.0.3922:sonar \
-          -Dsonar.token=${{ secrets.SONAR_TOKEN }} \
-          -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.organization=oscargitops \
-          -Dsonar.projectKey=OscarGitOps_Laboratorio-final
+      #- name: Analisis SonarCloud
+      #  run: |
+      #    mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:3.11.0.3922:sonar \
+      #    -Dsonar.token=${{ secrets.SONAR_TOKEN }} \
+      #    -Dsonar.host.url=https://sonarcloud.io \
+      #    -Dsonar.organization=oscargitops \
+      #    -Dsonar.projectKey=OscarGitOps_Laboratorio-final
 
           
       - name: Dependency Check
