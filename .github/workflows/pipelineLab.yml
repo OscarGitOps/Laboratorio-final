@@ -40,6 +40,10 @@ jobs:
     runs-on: self-hosted
     steps:
       
+      - name: Permisos
+        run: |
+          ls -l /home/oscar/actions-runner/_work/Laboratorio-final/Laboratorio-final
+
       - name: OWASP ZAP Scan
         uses: zaproxy/action-baseline@v0.11.0
         with:
